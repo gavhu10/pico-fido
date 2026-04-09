@@ -1,0 +1,2 @@
+sudo docker run --rm -v $PWD:/project -w /project -u $UID -e HOME=/tmp espressif/idf:release-v5.5 ./workflows/autobuild.sh esp32 |& tee file.log
+esptool write-flash 0x0 ./release/pico_fido_esp32-s3.bin

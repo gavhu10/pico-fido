@@ -1,0 +1,8 @@
+pico-keys-sdk/
+esp-idf/
+managed_components/
+build/
+sdkconfig*
+dependencies.lock
+release/
+*.log
