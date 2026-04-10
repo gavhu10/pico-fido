@@ -2,7 +2,7 @@
 
 git submodule update --init --recursive
 
-idf.py set-target esp32s3
+# idf.py set-target esp32s3
 idf.py all
 mkdir -p release
 cd build
