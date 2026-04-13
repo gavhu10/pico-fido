@@ -1,3 +1,10 @@
-[submodule "pico-keys-sdk"]
-	path = pico-keys-sdk
-	url = https://github.com/gavhu10/pico-keys-sdk
+[submodule "pico-keys-sdk/tinycbor"]
+	path = pico-keys-sdk/tinycbor
+	url = https://github.com/intel/tinycbor.git
+[submodule "pico-keys-sdk/mlkem"]
+	path = pico-keys-sdk/mlkem
+	url = https://github.com/pq-code-package/mlkem-native/
+
+[submodule "pico-keys-sdk/mbedtls"]
+	path = pico-keys-sdk/mbedtls
+	url = https://github.com/ARMmbed/mbedtls
