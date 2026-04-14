@@ -42,7 +42,7 @@ else()
 endif()
 
 set(USB_ITF_CCID 1)
-set(USB_ITF_WCID 1)
+set(USB_ITF_WCID 0)
 include(cmake/version.cmake)
 include(cmake/options.cmake OPTIONAL)
 include(pico_keys_sdk_import.cmake)

@@ -82,7 +82,7 @@ configure_bool_option(
 
 if(ENABLE_OTP_APP OR ENABLE_OATH_APP)
     set(USB_ITF_CCID 1)
-    set(USB_ITF_WCID 1)
+    set(USB_ITF_WCID 0)
 else()
     set(USB_ITF_CCID 0)
 endif()

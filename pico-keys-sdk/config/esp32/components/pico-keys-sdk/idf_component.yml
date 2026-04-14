@@ -5,4 +5,3 @@ dependencies:
   zorxx/neopixel: "^1.0.4"
   
   m5stack/m5unified: "^0.2.13"
-  m5stack/m5gfx: "^0.2.19"
