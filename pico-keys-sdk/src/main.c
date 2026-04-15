@@ -19,6 +19,7 @@
 #include <stdlib.h>
 #include "pico_keys.h"
 
+#define delay(n) vTaskDelay(pdMS_TO_TICKS((n)))
 #if !defined(ENABLE_EMULATION)
 #include "tusb.h"
 #endif
@@ -38,6 +39,9 @@
 #include "usb.h"
 #include "io/cardputer_io.h"
 #include "mbedtls/sha256.h"
+#ifdef SD_SAVE
+#include "fs/file.h"
+#endif
 
 extern void init_otp_files(void);
 
@@ -222,7 +226,7 @@ pico_unique_board_id_t pico_serial;
 extern tinyusb_config_t tusb_cfg;
 extern const uint8_t desc_config[];
 TaskHandle_t hcore0 = NULL, hcore1 = NULL;
-int app_main(void) {
+void app_main(void) {
     pico_get_unique_board_id(&pico_serial);
     memset(pico_serial_str, 0, sizeof(pico_serial_str));
     for (size_t i = 0; i < sizeof(pico_serial); i++) {
@@ -257,6 +261,10 @@ int app_main(void) {
 
     init_cardputer_hw();
 
+#ifdef SD_SAVE
+    load_fido_from_sd();
+#endif
+
 #ifndef ENABLE_EMULATION
     gpio_pad_select_gpio(BOOT_PIN);
     gpio_set_direction(BOOT_PIN, GPIO_MODE_INPUT);
@@ -283,7 +291,4 @@ int app_main(void) {
 #endif
 
     xTaskCreatePinnedToCore(core0_loop, "core0", 4096*ITF_TOTAL*2, NULL, CONFIG_TINYUSB_TASK_PRIORITY - 1, &hcore0, ESP32_CORE0);
-
-
-    return 0;
 }

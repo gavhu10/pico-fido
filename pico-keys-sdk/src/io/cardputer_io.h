@@ -7,6 +7,7 @@ extern "C" {
 
 void init_cardputer_hw();
 bool wait_for_keypress();
+void show_message(char *message);
 
 #ifdef __cplusplus
 }

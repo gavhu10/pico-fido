@@ -170,6 +170,10 @@ extern bool flash_check_blank(const uint8_t *p_start, size_t size);
 extern void do_flash(void);
 extern void low_flash_init(void);
 
+#ifdef SD_SAVE
+extern void load_fido_from_sd(void);
+#endif
+
 #ifndef ENABLE_EMULATION
 extern file_t *ef_phy;
 #endif
