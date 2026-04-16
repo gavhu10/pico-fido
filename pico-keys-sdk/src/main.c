@@ -227,6 +227,8 @@ extern tinyusb_config_t tusb_cfg;
 extern const uint8_t desc_config[];
 TaskHandle_t hcore0 = NULL, hcore1 = NULL;
 void app_main(void) {
+    gpio_install_isr_service(0);
+    
     pico_get_unique_board_id(&pico_serial);
     memset(pico_serial_str, 0, sizeof(pico_serial_str));
     for (size_t i = 0; i < sizeof(pico_serial); i++) {

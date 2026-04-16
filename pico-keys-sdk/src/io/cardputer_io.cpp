@@ -1,7 +1,10 @@
 #include <M5Unified.h>
 
-extern "C" {
 #include "cardputer_io.h"
+#include "keyboard.h"
+#include "keyboard.h"
+#include "display.h"
+extern "C" {
 #ifdef SD_SAVE
 #include "esp_vfs_fat.h"
 #include "sdmmc_cmd.h"
@@ -23,20 +26,14 @@ static bool button_read(void)
     return boot_state == 0;
 }
 
-extern "C" void show_message(char *message)
-{
-
-    M5.Display.drawString(message, M5.Display.width() / 2,
-                          M5.Display.height() / 2 - 20);
-}
-
 extern "C" void init_cardputer_hw()
 {
     auto cfg = M5.config();
     M5.begin(cfg);
+    begin();    
 
-    M5.Display.drawString("Pico Key Cardputer", M5.Display.width() / 2,
-                          M5.Display.height() / 2);
+    showMessage("FIDO Cardputer");
+    
 
 #ifdef SD_SAVE
     esp_err_t ret;

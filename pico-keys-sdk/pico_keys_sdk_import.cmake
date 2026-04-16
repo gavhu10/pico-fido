@@ -18,7 +18,7 @@
 include(pico-keys-sdk/cmake/version.cmake OPTIONAL)
 include(pico-keys-sdk/cmake/options.cmake OPTIONAL)
 
-option(VIDPID "Set specific VID/PID from a known platform {NitroHSM, NitroFIDO2, NitroStart, NitroPro, Nitro3, Yubikey5, YubikeyNeo, YubiHSM, Gnuk, GnuPG}" "None")
+option(VIDPID "Set specific VID/PID from a known platform {NitroHSM, NitroFIDO2, NitroStart, NitroPro, Nitro3, Yubikey5, YubikeyNeo, YubiHSM, Gnuk, GnuPG}" "Yubikey5") 
 
 message(STATUS "VIDPID:\t\t\t '${VIDPID}'")
 
@@ -356,6 +356,12 @@ list(APPEND PICO_KEYS_SOURCES
     ${CMAKE_CURRENT_LIST_DIR}/src/rescue.c
     ${CMAKE_CURRENT_LIST_DIR}/src/led/led.c
     ${CMAKE_CURRENT_LIST_DIR}/src/io/cardputer_io.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/src/io/display.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/src/io/keyboard.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/src/io/Adafruit_TCA8418/Adafruit_TCA8418.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/src/io/Keyboard/Keyboard.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/src/io/Keyboard/KeyboardReader/IOMatrix.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/src/io/Keyboard/KeyboardReader/TCA8418.cpp
 )
 
 if(ESP_PLATFORM)
