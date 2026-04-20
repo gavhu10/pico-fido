@@ -42,3 +42,4 @@ and uses the following libraries or portions of code:
 - MbedTLS for cryptographic operations.
 - TinyUSB for low level USB procedures.
 - TinyCBOR for CBOR parsing and formatting.
+- M5Unified and a ported version of M5Cardputer 1.1.1 for IO
