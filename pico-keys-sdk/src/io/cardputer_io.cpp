@@ -27,7 +27,7 @@ extern "C" void init_cardputer_hw()
     M5.begin(cfg);
     begin();
 
-    showMessage("FIDO Cardputer");
+    show_logo();
 
 #ifdef SD_SAVE
     esp_err_t ret;
@@ -74,6 +74,6 @@ extern "C" bool confirm_auth()
 {
     bool choice = (!confirm("Authenticate?"));
     displayClearMainView();
-    showMessage("FIDO Cardputer");
+    show_logo();
     return choice;
 }

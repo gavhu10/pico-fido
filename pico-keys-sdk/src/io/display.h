@@ -5,7 +5,7 @@
 #include <string>
 
 #define BACKGROUND_COLOR TFT_BLACK
-#define PRIMARY_COLOR 0xf3e1
+#define PRIMARY_COLOR 0x04df
 #define RECT_COLOR_DARK 0x0841
 #define RECT_COLOR_LIGHT 0xd69a
 #define TEXT_COLOR 0xef7d
@@ -17,6 +17,7 @@
 void displayInit();
 void displayClearMainView(uint8_t offsetY = 0);
 extern "C" void showMessage(const char *message);
+extern "C" void show_logo(void);
 unsigned int selectFromList(std::vector<std::string> items, unsigned int startIndex = 0);
 std::string getInput(std::string);
 bool confirm(std::string prompt);

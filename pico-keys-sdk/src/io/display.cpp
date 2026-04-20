@@ -1,5 +1,7 @@
 #include "display.h"
 #include "keyboard.h"
+#include "../../logo.h"
+
 #include <M5Unified.h>
 
 #include <memory>
@@ -285,4 +287,11 @@ bool confirm(std::string prompt)
 
         delay(100);
     }
+}
+
+void show_logo()
+{
+    M5.Display.setSwapBytes(true);
+
+    M5.Display.pushImage(0, 0, 240, 135, FIDO_CARDPUTER_LOGO);
 }
