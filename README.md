@@ -34,6 +34,8 @@ esptool --flash-size 4MB --flash-freq 80m 0x0 build/bootloader/bootloader.bin 0x
   build/partition_table/partition-table.bin 0x20000 build/FIDO-Cardputer.bin
 ```
 
+I have not managed to get it to work with M5 Launcher yet. However, YMMV.
+
 ## Credits
 FIDO Cardputer is built heavily on [Pico FIDO](https://github.com/polhenarejos/pico-fido) 
 and started of as a fork of it. 
